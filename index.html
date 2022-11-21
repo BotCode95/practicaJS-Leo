@@ -5,94 +5,27 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 </head>
 <body>
-        <div>
-            <label for="">Titulo:</label>
-            <input type="text" id="titulo"/>
+    <div class="row justify-content-center">
+        <div class="col-8 mb-3">
+            <label for="" class="form-label">Titulo:</label>
+            <input type="text" id="titulo" class="form-control"/>
         </div>
-        <div>
-            <label for="">URL Imagen:</label>
-            <input type="text" id="url"/>
+        <div class="col-8 mb-3">
+            <label for="" class="form-label">URL Imagen:</label>
+            <input type="text" id="url" class="form-control"/>
         </div>
-        <div>
-            <label for="">Parrafo</label>
-            <textarea id="parrafo"></textarea>
+        <div class="col-8 mb-3">
+            <label for="" class="form-label">Parrafo</label>
+            <textarea id="parrafo" class="form-control"></textarea>
         </div>
-        <button type="button" id="btn-enviar">Enviar Info</button>
-
-    <div id="tarjetas">
+        <button  type="button" id="btn-enviar" class="btn btn-primary col-6">Enviar Info</button>
+    </div>
+    <div id="tarjetas" class="row justify-content-center">
     </div>
     <div id="vertarjetas"></div>
 </body>
-<script>
-    const btn = document.getElementById('btn-enviar');
-
-    function enviarInfo() {
-        // Leemos el titulo del input
-        const titulo = document.getElementById('titulo').value;
-        // Leemos la url del input
-        const url = document.getElementById('url').value
-        // Leemos el parrafo del textarea
-        const parrafo = document.getElementById('parrafo').value
-
-        //Leemos el div de tarjetas
-        const tarjetas = document.getElementById('tarjetas');
-        //Creamos un div por cada una de las tarjetas nuevas, (es decir cada vez que apretamos el boton enviar info)
-        var tarjeta = document.createElement("div");
-
-        //Agregamos la info de los input en la tarjeta
-        tarjeta.innerHTML += `<p>Titulo: ${titulo}</p>`;
-        tarjeta.innerHTML += `<p>URL Imagen: ${url}</p>`;
-        tarjeta.innerHTML += `<p>Parrafo: ${parrafo}</p>`;
-
-        //Creamos un boton por cada tarjeta
-        var button = document.createElement('button');
-
-        button.innerText = 'Ocultar Tarjetas'
-
-        //Escuchar evento al hacer click en el boton ocultar tarjetas
-
-        button.addEventListener('click', ocultarTarjetas)
-
-        //metemos el boton dentro del div de cada tarjeta
-        tarjeta.appendChild(button)
-        //creamos un separador para dividir las tarjetas
-        var separador = document.createElement('hr');
-
-        //Agregamos la tarjeta
-        tarjetas.appendChild(tarjeta);
-        //Agregamos el separador
-        tarjetas.appendChild(separador);
-    }
-
-    function ocultarTarjetas() {
-        //Leemos el div de tarjetas
-        const tarjetas = document.getElementById('tarjetas');
-        //Ocultamos todas las tarjetas
-        tarjetas.hidden = true;
-
-        const verTarjetas = document.getElementById('vertarjetas')
-        //Creamos un boton por cada tarjeta
-        var button = document.createElement('button');
-        button.innerText = 'Ver Tarjetas'
-
-        verTarjetas.appendChild(button)
-
-
-        button.addEventListener('click', verTarjetasClick)
-
-        console.log('Se ejecuto')
-    }
-
-    function verTarjetasClick() {
-         //Leemos el div de tarjetas
-         const tarjetas = document.getElementById('tarjetas');
-        //Ocultamos todas las tarjetas
-        tarjetas.hidden = false;
-        const verTarjetas = document.getElementById('vertarjetas')
-        verTarjetas.removeChild()
-    }
-    btn.addEventListener('click', enviarInfo);
-</script>
+<script src="./index.js"></script>
 </html>
